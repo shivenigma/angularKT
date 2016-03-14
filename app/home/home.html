@@ -1,0 +1,27 @@
+<div class="col-md-6 col-sm-12 col-xs-12">
+    <h2>Search</h2>
+    <form name="searchForm" ng-submit="vm.showResults()">
+        <div class="col-md-8 col-xs-8 col-sm-8">
+            <div class="form-group">
+                <input type="text" ng-model="vm.searchTerm" list="articles" autocomplete="off" placeholder="Search Term" name="search_term" id="search_term" class="form-control" ng-change="vm.search();" ng-model-options='{ debounce: 400 }'>
+                <datalist id="articles">
+                    <option value="{{item.title}}" ng-repeat="item in vm.result track by $index"/>
+                </datalist>
+            </div>
+        </div>
+        <div class="col-md-24 col-xs-4 col-sm-4">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+    <div class="col-md-8 col-xs-8 col-sm-8">
+        <div class="list-group">
+            <a ng-href="#/details/{{item.title}}" class="list-group-item" ng-repeat="item in vm.searchResults track by $index" ng-class-even="'list-even'">
+                <h4>{{item.title}}</h4>
+                <p ng-bind-html="item.snippet | htmlFilter"></p>
+                <p class="text-info pull-left">{{'Words :'+item.wordcount}}</p>
+                <p class="text-info pull-right">{{item.timestamp | date}}</p>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+    </div>
+</div>

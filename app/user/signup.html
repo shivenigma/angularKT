@@ -1,0 +1,101 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <h2>Form</h2>
+    <form name="signupForm" novalidate ng-submit="vm.submit()">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="form-group" ng-class="{'has-error':(signupForm.$submitted&&!signupForm.first_name.$valid)}">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name" class="form-control" required ng-minlength="3" ng-maxlength="12" ng-model="vm.model.first_name">
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.first_name.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your First Name</div>
+                    <div ng-message="minlength">First Name is too Short</div>
+                    <div ng-message="maxlength">First Name is too Long</div>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="{'has-error' : signupForm.$submitted&&!signupForm.dob.$valid}">
+                <label for="dob">DOB</label>
+                <input type="date" name="dob" id="dob" class="form-control" ng-model="vm.model.dob" required ng-change="vm.calculateAge();">
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.dob.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your DOB</div>
+                    <div ng-message="date">Please Enter a Valid Date</div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : signupForm.$submitted&&!signupForm.email.$valid}">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required ng-model="vm.model.email">
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.email.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your Email</div>
+                    <div ng-message="email">Please Enter a Valid Email</div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : signupForm.$submitted&&!signupForm.state.$valid}">
+                <label for="state">State</label>
+                <input type="text" name="state" id="state" class="form-control" required ng-model="vm.model.state">
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.state.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your State</div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : signupForm.$submitted&&!signupForm.gender.$valid}">
+                <div class="col-sm-6">
+                    <label for="input-type">Gender:</label>
+                    <div id="input-type" class="row">
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input name="gender" value="male" ng-model="vm.model.gender" type="radio" required/>Male
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input name="gender" value="female" type="radio" ng-model="vm.model.gender" required/>Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.gender.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Select your gender</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="form-group"  ng-class="{'has-error' : signupForm.$submitted&&!signupForm.last_name.$valid}">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name" ng-model="vm.model.last_name" required class="form-control">
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.last_name.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your Last Name</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age" class="form-control" ng-model="vm.model.age" readonly>
+            </div>
+            <div class="form-group"  ng-class="{'has-error' : signupForm.$submitted&&!signupForm.street.$valid}">
+                <label for="street">Street</label>
+                <input type="text" name="street" id="street" class="form-control" ng-model="vm.model.street" required>
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.street.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your Street name</div>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="{'has-error' : signupForm.$submitted&&!signupForm.city.$valid}">
+                <label for="city">City</label>
+                <input type="text" ng-model="vm.model.city" required name="city" id="city" class="form-control">
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.city.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Enter Your City</div>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="{'has-error' : signupForm.$submitted&&!signupForm.country.$valid}">
+                <label for="country">Country</label>
+                <select required ng-model="vm.model.country" name="country" id="country" class="form-control" ng-options="country as country.name for country in vm.countries track by country.shortname">
+                    <option value="">Select</option>
+                </select>
+                <div ng-if="signupForm.$submitted" ng-messages="signupForm.country.$error" role="alert" class="text-danger">
+                    <div ng-message="required">Please Select Your Country</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-offset-5 col-sm-offset-10 col-xs-offset-10">
+            <button type="submit" name="submit" class="btn btn-success">Register</button>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+</div>

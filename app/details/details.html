@@ -1,0 +1,8 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div ng-repeat="page in vm.details">
+        <h3 ng-bind="page.title"></h3>
+        <div ng-bind-html="page.extract | htmlFilter"></div>
+        <a ng-href="#home" class="btn btn-info pull-left">Back</a>
+        <a ng-href="https://en.wikipedia.org/?curid={{page.pageid}}" class="btn btn-info pull-right" target="_blank">Read More</a>
+    </div>
+</div>
