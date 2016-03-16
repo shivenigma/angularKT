@@ -15,10 +15,83 @@
     <script src="app/details/detailsController.js" type="text/javascript"></script>
     <script src="app/details/detailsService.js" type="text/javascript"></script>
     <script src="app/user/userController.js" type="text/javascript"></script>
+
+    <script src="app/common/tabDirective.js" type="text/javascript"></script>
+    <script src="app/common/tabSetDirective.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="mainController as Main">
 <div ng-view></div>
+<div class="clearfix"></div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <tabset>
+            <tab title="vignesh">
+                <div class="well well-lg">
+                    <h3>Vignesh M, <small>Software Programmer</small></h3>
+                    <ul>
+                        <li>AngularJS</li>
+                        <li>PHP</li>
+                        <li>Javascript</li>
+                        <li>HTML</li>
+                    </ul>
+                </div>
+                <div class="well well-lg">
+                    <div class="thumbnail">
+                        <img src="https://lh3.googleusercontent.com/-KSgEcLnfzDc/VrHnY50HcqI/AAAAAAAAAA0/gnHbLbP2iCAamMIGfsdTNdPPsUmBVVCGQ/s583-no/20150824_092654.jpg" alt="Vignesh M">
+                        <div class="caption">
+                            <h3>Vignesh M</h3>
+                            <p>Software Programmer</p>
+                            <p>Skills</p>
+                            <ul>
+                                <li>AngularJS</li>
+                                <li>PHP</li>
+                                <li>Javascript</li>
+                                <li>HTML</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+            <tab title="karthick" active>
+                <div class="well well-lg">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Karthick TM</h3>
+                            <p>Software Programmer</p>
+                            <p>Skills</p>
+                            <ul>
+                                <li>BackboneJS</li>
+                                <li>PHP</li>
+                                <li>Javascript</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+            <tab title="Senthil">
+                <div class="well well-lg">
+                    <div class="thumbnail">
+                        <img src="https://lh4.googleusercontent.com/-BGfzqk3LuU0/VfABenu_dHI/AAAAAAAAAMI/MxrnyZ80JwUm0vQIRZzbYQ1MiytcHxgOg/w581-h583-no/IMG_20150905_184910.jpg" alt="Senthil">
+                        <div class="caption">
+                            <h3>Senthil Kumar A</h3>
+                            <p>Software Programmer</p>
+                            <p>Skills</p>
+                            <ul>
+                                <li>AngularJS</li>
+                                <li>Ionic Framework</li>
+                                <li>PHP</li>
+                                <li>Javascript</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
 </body>
 </html>
